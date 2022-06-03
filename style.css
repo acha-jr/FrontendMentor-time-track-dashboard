@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+
+  --blue: hsl(246, 80%, 60%);
+  --work/*(work):*/: hsl(15, 100%, 70%);
+  --play/*(play):*/: hsl(195, 74%, 62%);
+  --study/*(study):*/ : hsl(348, 100%, 68%);
+  --exercise/*(exercise)*/: hsl(145, 58%, 55%);
+  --social/*(social)*/: hsl(264, 64%, 52%);
+  --self-care/*(self care)*/: hsl(43, 84%, 65%);
+
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+}
+
+body {
+  background: var(--very-dark-blue);
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 30px;
+  position: relative;
+}
+section {
+  width: 230px;
+  border-radius: 1em;
+}
+.profile {
+  grid-area: 1/1 / span 2 / span 1;
+  color: white;
+  background: var(--dark-blue);
+  padding: 0;
+}
+.profile .top {
+  background: var(--blue);
+  border-radius: 1em;
+  width: 100%;
+  padding: 25px;
+  padding-bottom: 70px;
+}
+.profile img {
+  width: 75px;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+.profile .top p {
+  margin-top: 30px;
+  color: var(--pale-blue);
+  font-size: 14px;
+  font-weight: 300;
+}
+.profile .top h2 {
+  margin-top: 5px;
+  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+ul {
+  padding: 20px;
+  padding-bottom: 10px;
+}
+li {
+  list-style: none;
+  line-height: 2.5em;
+  color: var(--desaturated-blue);
+  cursor: pointer;
+  transition: 0.3s;
+}
+li.current {
+  color: white;
+}
+li:hover {
+  color: white;
+}
+section:not(.profile) {
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
+}
+section:not(.profile):hover .report {
+  background: #34397b;
+}
+section:nth-child(2) {
+  background: url(./images/icon-work.svg) no-repeat, var(--work);
+  background-size: 68px;
+  background-position: 90% -9px;
+}
+section:nth-child(3) {
+  background: url(./images/icon-play.svg) no-repeat, var(--play);
+  background-size: 68px;
+  background-position: 90% -9px;
+}
+section:nth-child(4) {
+  background: url(./images/icon-study.svg) no-repeat, var(--study);
+  background-size: 68px;
+  background-position: 90% -9px;
+}
+section:nth-child(5) {
+  background: url(./images/icon-exercise.svg) no-repeat, var(--exercise);
+  background-size: 68px;
+  background-position: 90% 0;
+}
+section:nth-child(6) {
+  background: url(./images/icon-social.svg) no-repeat, var(--social);
+  background-size: 68px;
+  background-position: 90% -14px;
+}
+section:nth-child(7) {
+  background: url(./images/icon-self-care.svg) no-repeat, var(--self-care);
+  background-size: 68px;
+  background-position: 90% -12px;
+}
+.report {
+  background: var(--dark-blue);
+  position: relative;
+  padding: 25px;
+  border-radius: 0.8em;
+  color: white;
+  transition: 0.3s;
+}
+.report::before {
+  content: url(./images/icon-ellipsis.svg);
+  position: absolute;
+  right: 23px;
+}
+.report p:nth-child(1) {
+  font-size: 18px;
+  font-weight: 500;
+}
+.report h1 {
+  font-size: 3em;
+  font-weight: 300;
+  margin-top: 15px;
+}
+.report p:nth-child(3) {
+  color: var(--pale-blue);
+  margin-top: 10px;
+  font-size: 13px;
+}
+.attribution {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -60px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+.attribution a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+@media screen and (min-width: 375px) and (max-width: 1023px) {
+  main {
+    grid-template-columns: auto;
+  }
+  body {
+    display: block;
+    padding: 80px 0;
+  }
+  .profile .top {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+  .top .text p {
+    margin: 0;
+  }
+  .top .text h2 {
+    font-size: 1.5em;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+  }
+  section {
+    width: 90%;
+    margin: auto;
+    padding-top: 40px;
+  }
+  section .report {
+    align-items: center;
+  }
+  .report p:nth-child(1) {
+    font-size: 16px;
+  }
+  .report h1 {
+    font-size: 1.6em;
+    margin-top: 5px;
+  }
+  .report p:nth-child(3) {
+    position: absolute;
+    margin: 0;
+    right: 23px;
+    bottom: 25px;
+  }
+}
